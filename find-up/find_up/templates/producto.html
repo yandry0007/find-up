@@ -1,0 +1,37 @@
+{% load staticfiles %}
+<html>
+	<head>
+		<title>Productos</title>
+	</head>
+
+	<body>
+	<br><h2>LISTA DE PRODUCTOS</h2>
+	{% if pro %}
+	<table id="table" >
+		<theader>
+			<tr>
+				<th><h2>Producto</h2></th>
+				<th><h2>Precio</h2></th>
+				<th><h2>Stock</h2></th>
+				<th><h2>Descripcion</h2></th>
+			</tr>
+		</theader>
+
+
+		<tbody id="tbody" >
+			<tr id="tr{{p.id}}">
+				<td><h2>{{pro.nombre}}</h2></td>
+				<td><h2>{{pro.precio}}</h2></td>
+				<td><h2>{{pro.stock}}</h2></td>
+				<td><h2>{{pro.descripcion}}</h2></td>
+			</tr>
+		</tbody>
+</table>
+<a href="/agregar/producto/">Agregar Otro</a>
+{% else %}
+	<h2>no existen productos para la VENTA :(</h2>
+	<a href="/agregar/producto/">Agregar Productos</a>
+{% endif %}
+	
+	</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'baseB.html' %}
+{% block title %}Contactanos{% endblock  %}
+{% block content %}
+{% load staticfiles %}
+
+	{% if informacion %}
+		<br>La informcion enviada es la siguiente
+			<p> Email: {{email}} </p>
+			<p> Titulo: {{titulo}} </p>
+			<p> Texto: {{texto}} </p>
+			
+			<form method="GET">
+				<input type="submit" value="Regresar">			
+			</form>
+	{% else %}
+		<form method="POST">
+			{% csrf_token %}
+			{{form.as_p}} 
+			<input type="submit" value="Enviar">
+		</form>
+	{% endif %}
+
+{% endblock %}
